@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -103,8 +103,7 @@ namespace ADMPlugin
             if (! (Directory.Exists(path) && Directory.GetFiles(path, String.Format(DatacardConstants.FileFormat, "*"), SearchOption.AllDirectories).Any()))
                 return false;
 
-            var currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            var currentMajorVersion = currentVersion.Substring(0, currentVersion.IndexOf('.'));
+            var currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
             var filename = Path.Combine(dataPath, AdmVersionFilename);
             var dataVersionModel = _admVersionInfoReader.ReadVersionInfoModel(filename);
@@ -112,10 +111,9 @@ namespace ADMPlugin
             if (dataVersionModel == null)
                 return true;
             
-            var dataVersion = dataVersionModel.AdmVersion;
-            var dataMajorVersion = dataVersion.Substring(0, currentVersion.IndexOf('.'));
+            var dataVersion = new Version(dataVersionModel.AdmVersion);
 
-            if (currentMajorVersion == dataMajorVersion)
+            if (currentVersion.Major == dataVersion.Major)
                 return true;
 
             return false;

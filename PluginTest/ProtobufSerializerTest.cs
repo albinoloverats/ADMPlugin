@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace PluginTest
         [SetUp]
         public void Setup()
         {
-            _testCardPath = DatacardUtility.WriteDataCard("TestDatacard");
+            _testCardPath = DatacardUtility.WriteDatacard("TestDatacard");
             _spatialRecords = new List<SpatialRecord>();
             _meters = new List<WorkingData>();
         }
