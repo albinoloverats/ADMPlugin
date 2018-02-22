@@ -14,16 +14,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AgGatewayADAPTFramework" Version="1.2.0-alpha1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
-    <PackageReference Include="Moq" Version="4.8.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="NUnit" Version="3.9.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
-    <PackageReference Include="protobuf-net" Version="2.3.6" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ADMPlugin\ADMPlugin.csproj" />
   </ItemGroup>
 
@@ -35,21 +25,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Datacards\TestDatacard.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ProtobufTestFiles\ProtobufMappingTest.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ProtobufTestFiles\ProtobufMappingTest2.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ProtobufTestFiles\ProtobufMappingTest3.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ProtobufTestFiles\test.proto">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\ProtobufMapping.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
