@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ADMPlugin;
+using AgGateway.ADAPT.ADMPlugin;
 using AgGateway.ADAPT.ApplicationDataModel.ADM;
 using AgGateway.ADAPT.ApplicationDataModel.Equipment;
 using AgGateway.ADAPT.ApplicationDataModel.LoggedData;
@@ -11,7 +11,7 @@ using Moq;
 using NUnit.Framework;
 using TestUtilities;
 
-namespace PluginTest
+namespace AgGateway.ADAPT.PluginTest
 {
     [TestFixture]
     public class PluginTest
@@ -225,7 +225,7 @@ namespace PluginTest
         [Test]
         public void GivenPluginAndDataModelWhenExportThenProprietaryValuesFileIsWritten()
         {
-            var dataModel = new ApplicationDataModel
+            var dataModel = new ApplicationDataModel.ADM.ApplicationDataModel
             {
                 ProprietaryValues = new List<ProprietaryValue>
                 {
@@ -244,7 +244,7 @@ namespace PluginTest
         [Test]
         public void GivenPluginAndDataModelWhenExportThenCatalogFileIsWritten()
         {
-            var dataModel = new ApplicationDataModel
+            var dataModel = new ApplicationDataModel.ADM.ApplicationDataModel
             {
                 Catalog = new Catalog()
             };
@@ -258,7 +258,7 @@ namespace PluginTest
         [Test]
         public void GivenPluginAndDataModelWhenExportThenReferenceLayersFileIsWritten()
         {
-            var dataModel = new ApplicationDataModel
+            var dataModel = new ApplicationDataModel.ADM.ApplicationDataModel
             {
                 ReferenceLayers = new List<ReferenceLayer>
                 {
@@ -276,7 +276,7 @@ namespace PluginTest
         [Test]
         public void GivenPluginAndDataModelWhenExportThenVersionFileIsWritten()
         {
-            var dataModel = new ApplicationDataModel
+            var dataModel = new ApplicationDataModel.ADM.ApplicationDataModel
             {
                 ReferenceLayers = new List<ReferenceLayer>
                 {

@@ -7,7 +7,7 @@ using AgGateway.ADAPT.ApplicationDataModel.ADM;
 using AgGateway.ADAPT.ApplicationDataModel.ReferenceLayers;
 using Newtonsoft.Json;
 
-namespace ADMPlugin
+namespace AgGateway.ADAPT.ADMPlugin
 {
     public class Plugin : IPlugin
     {
@@ -124,7 +124,7 @@ namespace ADMPlugin
             return new List<IError>();
         }
 
-        public IList<ApplicationDataModel> Import(string path, Properties properties = null)
+        public IList<ApplicationDataModel.ADM.ApplicationDataModel> Import(string path, Properties properties = null)
         {
             if (!IsDataCardSupported(path, properties))
                 return null;
@@ -133,7 +133,7 @@ namespace ADMPlugin
             var proprietaryValues = ImportData<List<ProprietaryValue>>(path, ProprietaryValuesAdm);
             var referenceLayers = ImportReferenceLayers(path, ReferencelayersAdm); 
 
-            var applicationDataModel = new ApplicationDataModel
+            var applicationDataModel = new ApplicationDataModel.ADM.ApplicationDataModel
             {
                 ProprietaryValues = proprietaryValues,
                 Catalog = catalog,
@@ -150,7 +150,7 @@ namespace ADMPlugin
             return _protobufReferenceLayerSerializer.Import(filepath, filename);
         }
 
-        public void Export(ApplicationDataModel dataModel, string exportPath, Properties properties = null)
+        public void Export(ApplicationDataModel.ADM.ApplicationDataModel dataModel, string exportPath, Properties properties = null)
         {
             var path = Path.Combine(exportPath, DatacardConstants.PluginFolderAndExtension);
             if (!Directory.Exists(path))

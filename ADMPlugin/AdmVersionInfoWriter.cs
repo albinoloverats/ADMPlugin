@@ -2,7 +2,7 @@ using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace ADMPlugin
+namespace AgGateway.ADAPT.ADMPlugin
 {
 
     public interface IAdmVersionInfoWriter
