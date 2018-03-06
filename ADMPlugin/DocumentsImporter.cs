@@ -105,11 +105,14 @@ namespace ADMPlugin
             foreach (var loggedDataFile in loggedDataFiles)
             {
                 var loggedData = _protobufSerializer.Read<LoggedData>(loggedDataFile);
-                foreach (var operationData in loggedData.OperationData)
+                if (loggedData.OperationData != null)
                 {
-                    ImportSpatialRecords(documentsPath, operationData);
-                    ImportSections(documentsPath, operationData);
-                    ImportMeters(documentsPath, operationData);
+                    foreach (var operationData in loggedData.OperationData)
+                    {
+                        ImportSpatialRecords(documentsPath, operationData);
+                        ImportSections(documentsPath, operationData);
+                        ImportMeters(documentsPath, operationData);
+                    }
                 }
 
                 yield return loggedData;
